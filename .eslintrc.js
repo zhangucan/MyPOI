@@ -3,7 +3,8 @@ module.exports = {
   parser: 'babel-eslint',
   env: {
     browser: true,
-    node: true
+    node: true,
+    commonjs: true
   },
   extends: 'standard',
   // required to lint *.vue files
@@ -12,6 +13,10 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    "indent": [
+      "error",
+      2
+    ],
     'space-before-function-paren': [
       2,
       {
