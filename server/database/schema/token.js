@@ -30,6 +30,9 @@ TokenSchema.statics = {
     const token = await this.findOne({
       name: 'access_token'
     }).exec()
+    if (token && token.token) {
+      token.access_token = token.token
+    }
     return token
   },
   async saveAccessToken(data) {

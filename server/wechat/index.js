@@ -1,15 +1,17 @@
-import { Mongoose } from 'mongoose'
+// import { mongoose } from 'mongoose'
 import config from '../config'
-import { Wechat } from '../wechat-lib/index'
+import { Wechat } from '../wechat-lib/index' // 初始化mongodb的方法
 
-const Token = Mongoose.mode('Token')
+const mongoose = require('mongoose')
+const Token = mongoose.model('Token')
 const wechatConfig = {
   wechat: {
     appID: config.wechat.appID,
     appSecret: config.wechat.appSecret,
     token: config.wechat.token,
+    // 传入schema的方法 函数式编程
     getAccessToken: async () => Token.getAccessToken(),
-    saveAccessToken: async () => Token.saveAccessToken()
+    saveAccessToken: async (data) => Token.saveAccessToken(data)
   }
 }
 export const getWechat = () => {

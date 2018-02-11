@@ -5,6 +5,7 @@ import sha1 from 'sha1'
 export const router = app => {
   const router = new Router()
   router.get('/wechat-hear', (ctx, next) => {
+    require('../wechat') // 加载微信组件
     const token = config.wechat.token
     const {
             signature,
@@ -15,7 +16,6 @@ export const router = app => {
 
     const str = [token, timestamp, nonce].sort().join('')
     const sha = sha1(str)
-    console.log(echostr)
     if (sha === signature) {
       ctx.body = echostr
     } else {

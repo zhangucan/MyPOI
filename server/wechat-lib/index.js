@@ -1,8 +1,8 @@
-import request from 'requset-promise'
+import request from 'request-promise'
 
 const base = 'https://api.weixin.qq.com/cgi-bin/'
 const api = {
-  accessToken: base + 'token?grant_type=client_credential &appid=APPID&secret=APPSECRET'
+  accessToken: base + 'token?grant_type=client_credential'
 }
 export const Wechat = class Wechat {
   constructor(opts) { // 微信配置项
@@ -18,17 +18,18 @@ export const Wechat = class Wechat {
     options = Object.assign({}, options, {json: true})
     try {
       const response = await request(options)
-      console.log(response)
       return response
     } catch (e) {
       console.error(e)
     }
   }
   async fetchAccessToken() { // 获取token
-    const data = await this.getAccessToken()
-    if (!this.isValidAccessToken(data)) {
-      return this.updateAccessToken()
+    let data = await this.getAccessToken()
+    if (!this.isValidAccessToken(data)) { // 检验
+      data = this.updateAccessToken()
     }
+    await this.saveAccessToken(data)
+    return data
   }
   async updateAccessToken() { // 更新token
     const url = api.accessToken + '&appid=' + this.appID + '&secret=' + this.appSecret
