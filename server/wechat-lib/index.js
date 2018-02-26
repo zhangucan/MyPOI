@@ -26,7 +26,7 @@ export const Wechat = class Wechat {
   async fetchAccessToken() { // 获取token
     let data = await this.getAccessToken()
     if (!this.isValidAccessToken(data)) { // 检验
-      data = this.updateAccessToken()
+      data = await this.updateAccessToken()
     }
     await this.saveAccessToken(data)
     return data
