@@ -33,7 +33,7 @@ export default function(opts, reply) {
 
       const content = await util.parseXML(data) // 解析 xml 数据
       console.log(content)
-      const message = await util.formatMessage(content.xml) // 转换为 js对象
+      const message = await util.formatMessage(content) // 转换为 js对象
       ctx.weixin = message // 挂载到context上边
       await reply.apply(ctx, [ctx, next]) // 加载到回调函数上边
       const replyBody = ctx.body
