@@ -1,11 +1,11 @@
 import ejs from 'ejs'
-const template = `<xml> 
+const template = `<xml>
                     <ToUserName>< ![CDATA[<%= toUserName %>] ]></ToUserName>
-                    <FromUserName>< ![CDATA[<%= fromUserName %>] ]></FromUserName> 
-                    <CreateTime>createTime</CreateTime> 
-                    <MsgType>< ![CDATA[<%= msgType %>] ]></MsgType> 
+                    <FromUserName>< ![CDATA[<%= fromUserName %>] ]></FromUserName>
+                    <CreateTime>createTime</CreateTime>
+                    <MsgType>< ![CDATA[<%= msgType %>] ]></MsgType>
                     <% if(msgType === 'text') {%>
-                        <Content>< ![CDATA[<%- content %>] ]></Content> 
+                        <Content>< ![CDATA[<%- content %>] ]></Content>
                     <%} else if(msgType === 'image') {%>
                         <Image><MediaId>< ![CDATA[<% content.mediaId %>] ]></MediaId></Image>
                     <%} else if(msgType === 'voice') {%>
@@ -29,7 +29,7 @@ const template = `<xml>
                         <Articles>
                             <% content.forEach(function(item) { %>
                                 <item>
-                                    <Title>< ![CDATA[<% item.title %>] ]></Title> 
+                                    <Title>< ![CDATA[<% item.title %>] ]></Title>
                                     <Description>< ![CDATA[description1<% item.title %>] ]></Description>
                                     <PicUrl>< ![CDATA[<% item.picurl %>] ]></PicUrl>
                                     <Url>< ![CDATA[<% item.url %>] ]></Url>

@@ -15,7 +15,7 @@ export const Wechat = class Wechat {
     this.fetchAccessToken()
   }
   async request(options) { // 发请求
-    options = Object.assign({}, options, {json: true})
+    options = Object.assign({}, options, { json: true })
     try {
       const response = await request(options)
       return response
@@ -33,7 +33,7 @@ export const Wechat = class Wechat {
   }
   async updateAccessToken() { // 更新token
     const url = api.accessToken + '&appid=' + this.appID + '&secret=' + this.appSecret
-    const data = await this.request({url: url})
+    const data = await this.request({ url: url })
     const now = new Date().getTime()
     const expiresIn = now + (data.expires_in - 20) * 1000
     data.expires_in = expiresIn

@@ -3,7 +3,7 @@ import template from './tpl'
 // 解析xml
 function parseXML(xml) {
   return new Promise((resolve, reject) => { // 返回的是Promise对象
-    xml2js.parseString(xml, {trim: true}, (err, content) => {
+    xml2js.parseString(xml, { trim: true }, (err, content) => {
       if (err) {
         reject(err)
       } else {
@@ -14,17 +14,17 @@ function parseXML(xml) {
 }
 // 解析object对象
 function formatMessage(result) {
-  let message = {}
+  const message = {}
   if (typeof result === 'object') {
     const keys = Object.keys(result)
     for (let i = 0; i < keys.length; i++) {
-      let item = result[keys[i]]
-      let key = keys[i]
+      const item = result[keys[i]]
+      const key = keys[i]
       if (!(item instanceof Array) || item.length === 0) {
         continue
       }
       if (item.length === 1) {
-        let val = item[0]
+        const val = item[0]
         if (typeof val === 'object') {
           message[key] = formatMessage(val)
         } else {
@@ -49,7 +49,7 @@ function tpl(content, message) { // 回复内容 解析后的微信消息
     content = '暂无回复'
   }
   type = content.type || type
-  let info = Object.assign({}, {
+  const info = Object.assign({}, {
     content: content,
     createTime: new Date().getTime(),
     msgType: content.type || type,
