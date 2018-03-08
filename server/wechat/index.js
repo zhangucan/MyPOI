@@ -18,4 +18,3 @@ export const getWechat = () => {
   const wechatClint = new Wechat(wechatConfig.wechat)
   return wechatClint
 }
-getWechat()
