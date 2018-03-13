@@ -1,7 +1,14 @@
+import { getWechat } from './index'
 export default async (ctx, next) => {
+  const client = await getWechat()
   const message = ctx.weixin
   if (message.MsgType === 'text') {
     ctx.body = message.Content
+    if (message.Content === '1') {
+      const menu = require('./menu').default
+      const data = await client.handle('createMenu', menu)
+      console.log(data)
+    }
   } else if (message.MsgType === 'image') {
     ctx.body = {
       msgType: 'image',

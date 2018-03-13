@@ -1,17 +1,6 @@
-import * as wechatPay from '../wechat-lib/pay'
 import { getWechat, getOAuth } from '../wechat'
 
 const wechatApi = getWechat()
-
-export async function findBillsAsync(date) {
-  const data = await wechatPay.getBillAsync(date)
-  return data
-}
-
-export async function findOrdersAsync(params) {
-  const data = await wechatPay.getOrderAsync(params)
-  return data
-}
 
 export async function getQrcodeAsync(params) {
   const data = await wechatApi.createQrcode(params)

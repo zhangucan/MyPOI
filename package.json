@@ -12,14 +12,21 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cross-env": "^5.0.1",
     "koa": "^2.4.1",
     "koa-router": "^7.2.1",
+    "mongoose": "^5.0.9",
     "nuxt": "latest",
-    "source-map-support": "^0.4.15"
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "source-map-support": "^0.4.15",
+    "xml2js": "^0.4.19"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
+    "babel-preset-latest-node": "^0.2.2",
+    "babel-preset-stage-3": "^6.24.1",
     "backpack-core": "^0.3.0",
     "eslint": "^3.13.1",
     "eslint-config-standard": "^10.2.1",

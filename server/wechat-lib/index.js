@@ -52,7 +52,7 @@ const api = {
   }
 }
 
-export default class Wechat {
+export class Wechat {
   constructor(opts) {
     this.opts = Object.assign({}, opts)
     this.appID = opts.appID

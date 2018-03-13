@@ -57,8 +57,8 @@ function tpl(content, message) {
     content = 'Empty News'
   }
 
-  if (content && content.type) {
-    type = content.type
+  if (content && content.msgType) {
+    type = content.msgType
   }
 
   const info = Object.assign({}, {

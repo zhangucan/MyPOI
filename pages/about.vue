@@ -5,7 +5,7 @@
   </section>
 </template>
 <script>
-import { mapState } from 'vuex'
+// import { mapState } from 'vuex'
 export default {
   asyncData({ req }) {
     return {
@@ -26,10 +26,11 @@ export default {
         const params = res.data.params
         wx.config({
           debug: true,
-          appiid: params.appid,
+          appid: params.appId,
           timestamp: params.timestamp,
           signature: params.signature,
-          jsApiList:[
+          nonceStr: params.nonceStr,
+          jsApiList: [
             'previewImage',
             'uploadImage',
             'downloadImage',
