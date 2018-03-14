@@ -17,6 +17,7 @@ const createStore = () => {
       shoppingScroll: 0,
       houses: [],
       characters: [],
+      cities: [],
       focusHouse: {},
       focusCharacter: {},
       user: null,

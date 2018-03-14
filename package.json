@@ -18,6 +18,7 @@
     "koa-router": "^7.2.1",
     "mongoose": "^5.0.9",
     "nuxt": "latest",
+    "pug": "^2.0.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
     "source-map-support": "^0.4.15",
