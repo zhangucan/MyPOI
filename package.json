@@ -17,10 +17,12 @@
     "koa": "^2.4.1",
     "koa-router": "^7.2.1",
     "mongoose": "^5.0.9",
+    "node-sass": "^4.7.2",
     "nuxt": "latest",
     "pug": "^2.0.1",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",
+    "sass-loader": "^6.0.7",
     "source-map-support": "^0.4.15",
     "xml2js": "^0.4.19"
   },

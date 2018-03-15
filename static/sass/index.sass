@@ -1,0 +1,87 @@
+@import './mixin'
+@import './color'
+@import './var'
+.container //+ 代表相邻子元素
+  +border-box
+  padding-bottom: $navHeight
+
+  .house
+    padding: 0 0 $spacing
+    +x-scroll
+    .items
+      margin-left: $spacing/2
+      width: 90%
+      font-size: 0
+      display: inline-box // 将对象作为内联块级弹性伸缩盒显示，同样继承inline-block属性 inline-block 将对象变成高度定死，宽度自适应的行内块元素
+    &:first-child //父选择器的标识符&
+      margin-left: $spacing
+    .desc
+      width: 100%
+      padding: $spacing/2
+      +font-dpr(10px)
+      +border-box
+      +break-word
+
+      .words // em 当前文本对象  rem html 根下的font-size
+        font-size: 1.4em
+        color: $grey-700
+
+      .cname
+        font-size: 1.9em
+        color: $black
+      .name
+        font-size: 1.8em
+        color: $grey-700
+.characters
+  padding: 0 $spacing
+  margin-bottom: $spacing
+  background: $white
+  +border-box
+
+  .title
+    +font-dpr(19px)
+    pading: $spacing 0
+    border-top: 1px solid $grey-400
+
+  .section
+    padding: 0 $spacing
+    border-bottom: 1px solid $grey-400
+    font-size: 0
+
+    .items:nth-child(2n)
+      margin-left: 5%
+
+    .items
+      width: 47.5%
+      +break-word
+      display: inline-block
+      margin-bottom: $spacing
+      img
+        height: 20rem
+      .desc
+        +font-dpr(10px)
+        .playedBy // em 当前文本对象  rem html 根下的font-size
+          font-size: 1.2em
+          color: $grey-600
+        .cname
+          font-size: 1.2em
+          color: $grey-600
+        .name
+          font-size: 1.2em
+          color: $grey-600
+.city
+  padding: 0 $spacing $spacing
+  +font-dpr(10px)
+  +border-box
+  line-height: 2em
+  position: relative
+
+  .city-title
+    font-size: 1.9em
+  .intro
+    font-size: 1.6em
+    color: $grey-800
+  .items
+    font-size: 1.45em
+    color: $grey-700
+    margin-top: $spacing*2

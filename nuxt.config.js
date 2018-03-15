@@ -19,7 +19,12 @@ module.exports = {
   /*
   ** Global CSS 该配置项用于定义应用的全局（所有页面均需引用的）样式文件、模块或第三方库。
   */
-  css: ['~static/css/main.css'],
+  css: [
+    {
+      src: './static/sass/base.sass',
+      lang: 'sass?indentedSyntax=true'
+    }
+  ],
   /*
   ** Customize the progress-bar color
   * 在页面切换的时候，
